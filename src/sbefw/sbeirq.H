@@ -5,7 +5,7 @@
 /*                                                                        */
 /* OpenPOWER sbe Project                                                  */
 /*                                                                        */
-/* Contributors Listed Below - COPYRIGHT 2015,2016                        */
+/* Contributors Listed Below - COPYRIGHT 2015,2018                        */
 /* [+] International Business Machines Corp.                              */
 /*                                                                        */
 /*                                                                        */
@@ -106,5 +106,8 @@
 
 #define SBE_MACHINE_CHECK_HANDLER \
     b __sbe_machine_check_handler
+
+#define SBE_INTERRUPT_REGISTER_SAVEOFF \
+    bl __sbe_register_saveoff
 
 #endif  //_SBE_IRQ_H
