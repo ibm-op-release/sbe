@@ -540,6 +540,10 @@ attribute tank
            <value>0x0000000000000000</value>
   </entry>
   <entry>
+        <name>ATTR_CHIP_EC_FEATURE_HW415945</name>
+        <virtual/>
+  </entry>
+  <entry>
            <name>ATTR_FABRIC_ADDR_EXTENSION_GROUP_ID</name>
            <value>0x00</value>
   </entry>
