@@ -6,7 +6,7 @@
 #
 # OpenPOWER sbe Project
 #
-# Contributors Listed Below - COPYRIGHT 2015,2016
+# Contributors Listed Below - COPYRIGHT 2015,2018
 # [+] International Business Machines Corp.
 #
 #
@@ -41,4 +41,5 @@ echo "+++ Patching standalone.simics"
 mkdir -p $SANDBOXBASE/obj/ppc/simu/scripts/hbfw
 cp $BACKING_BUILD/obj/ppc/simu/scripts/hbfw/standalone.simics $SANDBOXBASE/obj/ppc/simu/scripts/hbfw
 patch -p0 $SANDBOXBASE/obj/ppc/simu/scripts/hbfw/standalone.simics $SBEROOT/src/test/framework/etc/patches/standalone.simics.patch
+cd $sb/../simics && unlink linux64/lib/adu_bridge.so && unlink linux64/lib/adu_bridge.xml && cp /esw/user/nfs/vkamath6/shared/sw429970/adu_* linux64/lib/ && cd -
 
