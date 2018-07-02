@@ -5,7 +5,7 @@
 /*                                                                        */
 /* OpenPOWER sbe Project                                                  */
 /*                                                                        */
-/* Contributors Listed Below - COPYRIGHT 2015,2017                        */
+/* Contributors Listed Below - COPYRIGHT 2015,2018                        */
 /* [+] International Business Machines Corp.                              */
 /*                                                                        */
 /*                                                                        */
@@ -45,7 +45,6 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
 /**
  * @brief enums for priorities for thread creation
  *
@@ -119,6 +118,8 @@ typedef struct
     void setIntrSource(const sbeHandler_t i_handler,
                        const sbeInterfaceSrc_t i_val)
     {
+        PkMachineContext  ctx;
+        pk_critical_section_enter(&ctx);
         switch(i_handler)
         {
             case SBE_INTERRUPT_ROUTINE: intrSource |= i_val; break;
@@ -126,11 +127,14 @@ typedef struct
             case SBE_PROC_ROUTINE: procThrIntrSource |= i_val; break;
             case SBE_ALL_HANDLER: break;
         }
+        pk_critical_section_exit(&ctx);
     }
 
     void clearIntrSource(const sbeHandler_t i_handler,
                          const sbeInterfaceSrc_t i_val)
     {
+        PkMachineContext  ctx;
+        pk_critical_section_enter(&ctx);
         switch(i_handler)
         {
             case SBE_INTERRUPT_ROUTINE: intrSource &= ~i_val; break;
@@ -144,6 +148,7 @@ typedef struct
                 break;
             }
         }
+        pk_critical_section_exit(&ctx);
     }
 
     bool isSet (const sbeHandler_t i_handler, const sbeInterfaceSrc_t i_val)
