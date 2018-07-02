@@ -5,7 +5,7 @@
 /*                                                                        */
 /* OpenPOWER sbe Project                                                  */
 /*                                                                        */
-/* Contributors Listed Below - COPYRIGHT 2015,2017                        */
+/* Contributors Listed Below - COPYRIGHT 2015,2018                        */
 /* [+] International Business Machines Corp.                              */
 /*                                                                        */
 /*                                                                        */
@@ -43,7 +43,7 @@ struct timerService
     /**
       * @brief start timer
       *
-      * @param[in] i_time       time in ms
+      * @param[in] i_time       time in us
       * @param[in] i_callBack   callback function on timer expiry
       *
       * @return   error code as per sbe secondary errors
